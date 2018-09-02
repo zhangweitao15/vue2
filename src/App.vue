@@ -1,60 +1,43 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div id="myapp">
+      <!-- header -->
+      <app-header></app-header>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- sidebar -->
+          <app-sidebar></app-sidebar>
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <!-- AppList -->
+            <!-- <app-list></app-list> -->
+            <!-- 路由渲染的位置 -->
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
+// 导入AppHeader组件
+import AppHeader from  './components/AppHeader';
+// 导入 AppSidebar 组件
+import AppSidebar from  './components/AppSidebar';
+// 导入list组件 
+import AppList from  './components/AppList';
+// Es6 中模块化的语法 导出一个对象
 export default {
   name: 'app',
   data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+    return {}
+  },
+  components: {
+    AppHeader,
+    AppSidebar
+    // 'app-list': AppList
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
